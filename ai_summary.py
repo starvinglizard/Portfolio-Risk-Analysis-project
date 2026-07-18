@@ -1,10 +1,12 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import streamlit as st
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 
 
 def summarize_news(ticker, news_articles):
