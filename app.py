@@ -58,8 +58,6 @@ if st.session_state.get("analyzed", False):
 
     annual_rf, monthly_rf = get_risk_free_rate()
 
-    st.write("DEBUG - returns columns:", list(returns.columns))
-    st.write("DEBUG - weights keys:", list(weights.keys()))
 
     portfolio_returns = calculate_portfolio_returns(returns, weights)
 
